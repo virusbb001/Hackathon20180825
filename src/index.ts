@@ -88,7 +88,7 @@ export const realQuzzesList: Quiz[] = [{
     "○",
     "×"
   ],
-  correct: 0,
+  correct: 1,
   commentary: "",
   twoChoice: true
 }, {
