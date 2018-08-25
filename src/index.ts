@@ -16,29 +16,27 @@ interface Quizzes {
   quizzes: Quiz[];
 }
 
-const questions: Quizzes = {
-  "quizzes": [{
-    question: "問題文",
-    choices: [
-      "選択肢1",
-      "選択肢2",
-      "選択肢3",
-      "選択肢4"
-    ],
-    correct: 1,
-    commentary: "解説文",
-    twoChoice: false
-  }, {
-    question: "○×クイズ問題文",
-    choices: [
-      "○",
-      "×"
-    ],
-    correct: 0, // 🙆
-    commentary: "解説文",
-    twoChoice: true
-  }]
-};
+export const quizzesList: Quiz[] = [...Array(10)].map((_, i) => ({
+  question: `問題文${i+1}`,
+  choices: [
+    `選択肢${i+1}-1`,
+    `選択肢${i+1}-2`,
+    `選択肢${i+1}-3`,
+    `選択肢${i+1}-4`
+  ],
+  correct: i % 4,
+  commentary: `解説文 ${i+1}`,
+  twoChoice: false
+})).concat([...Array(10)].map((_, i) => ({
+  question: `○×問題文${i+1}`,
+  choices: [
+    "○",
+    "×"
+  ],
+  correct: i % 2,
+  commentary: `○×解説文 ${i+1}`,
+  twoChoice: true
+})));
 
 // CORS Setting
 app.use(function(_req, res, next) {
@@ -52,6 +50,9 @@ app.get("/", function(_req, res) {
 });
 
 app.get("/quiz", function(_req, res) {
+  const questions: Quizzes = {
+    "quizzes": quizzesList.sort(() => Math.floor(Math.random()*3) -1).slice(0,8)
+  };
   res.json(questions);
 });
 
