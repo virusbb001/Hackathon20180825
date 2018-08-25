@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "docprint": "^1.9.0",
     "typescript": "^3.0.1"
   }
 }
