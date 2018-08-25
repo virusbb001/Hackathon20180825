@@ -35,14 +35,14 @@ const questions: Quizzes = {
     correct: 0, // 🙆
     commentary: "解説文"
   }]
-}
+};
 
 // CORS Setting
 app.use(function(_req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
-})
+});
 
 app.get("/", function(_req, res) {
   res.send("hello world");
@@ -53,5 +53,5 @@ app.get("/quiz", function(_req, res) {
 });
 
 app.listen(app.get("port"), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
+  console.log("Node app is running at localhost:" + app.get("port"));
 });
