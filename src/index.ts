@@ -9,6 +9,7 @@ interface Quiz {
   choices: string[];
   correct: number;
   commentary: string;
+  twoChoice: boolean; // 二択の○×か
 }
 
 interface Quizzes {
@@ -25,7 +26,8 @@ const questions: Quizzes = {
       "選択肢4"
     ],
     correct: 1,
-    commentary: "解説文"
+    commentary: "解説文",
+    twoChoice: false
   }, {
     question: "○×クイズ問題文",
     choices: [
@@ -33,7 +35,8 @@ const questions: Quizzes = {
       "×"
     ],
     correct: 0, // 🙆
-    commentary: "解説文"
+    commentary: "解説文",
+    twoChoice: true
   }]
 };
 

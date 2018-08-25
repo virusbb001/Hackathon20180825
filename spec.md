@@ -29,7 +29,8 @@ Content-Type: application/json
       "選択肢4"
     ],
     "correct": 0,
-    "commentary": "解説とか豆知識とか"
+    "commentary": "解説とか豆知識とか",
+    "twoChoice": false
   }]
 }
 ```
